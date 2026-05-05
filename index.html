@@ -16,6 +16,7 @@
             line-height: 1.6;
             color: #333;
             background: white;
+            scroll-behavior: smooth;
         }
         
         .container {
@@ -26,7 +27,7 @@
         
         h2 {
             font-size: 1.2rem;
-            color: #1B9BA8;
+            color: #1B9BA8;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
             margin: 2rem 0 1rem 0;
             font-weight: 600;
             border-bottom: 2px solid #1B9BA8;
@@ -87,7 +88,44 @@
         .section {
             margin-bottom: 1.5rem;
         }
-        
+
+        .page-header {
+            padding: 2rem 0 1rem;
+            text-align: center;
+        }
+
+        .page-header p {
+            margin-top: 0.5rem;
+            color: #555;
+        }
+
+        .nav-buttons,
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.2rem;
+            border-radius: 999px;
+            border: none;
+            background: #1B9BA8;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .nav-button:hover {
+            background: #157a8a;
+        }
+
         footer {
             border-top: 1px solid #ddd;
             margin-top: 2rem;
@@ -114,241 +152,233 @@
                 padding: 0.5rem 0.6rem;
             }
         }
+
+        /* Tab styles */
+        .tabs {
+            margin: 2rem 0;
+        }
+
+        .tabs input[type="radio"] {
+            display: none;
+        }
+
+        .tabs label {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .tabs input[type="radio"]:checked + label {
+            background: #1B9BA8;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            border: 1px solid #ccc;
+            padding: 1rem;
+            background: white;
+        }
+
+        #building-tab:checked ~ #building-content {
+            display: block;
+        }
+
+        #private-tab:checked ~ #private-content {
+            display: block;
+        }
+
+        #fire-tab:checked ~ #fire-content {
+            display: block;
+        }
+
+        #engineering-tab:checked ~ #engineering-content {
+            display: block;
+        }
+
+        #landscape-tab:checked ~ #landscape-content {
+            display: block;
+        }
+
+        #zoning-tab:checked ~ #zoning-content {
+            display: block;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <div id="top"></div>
+    <header class="page-header">
+        <h1>Pompano Beach Fee Schedule</h1>
+        <p>Organized by department for faster lookup.</p>
+    </header>
 
-<div class="section">
-    <h2>Application Fees</h2>
-    <ul>
-        <li>Submittal Fee Deposit: 50% of building permit fee upfront</li>
-        <li>Dry Run Fee Deposit: 25% of building permit fee upfront</li>
-    </ul>
-</div>
+    <div class="tabs">
+        <input type="radio" id="building-tab" name="tabs" checked>
+        <label for="building-tab">Building Department</label>
+        <input type="radio" id="fire-tab" name="tabs">
+        <label for="fire-tab">Fire Prevention</label>
+        <input type="radio" id="engineering-tab" name="tabs">
+        <label for="engineering-tab">Engineering</label>
+        <input type="radio" id="landscape-tab" name="tabs">
+        <label for="landscape-tab">Landscape</label>
+        <input type="radio" id="zoning-tab" name="tabs">
+        <label for="zoning-tab">Zoning</label>
+        <input type="radio" id="private-tab" name="tabs">
+        <label for="private-tab">Private Provider</label>
 
-<div class="section">
-    <h2>Certificates</h2>
-    <table>
-        <tr><th>Type</th><th>Fee</th></tr>
-        <tr><td>Certificate of Occupancy (Residential)</td><td>$150.00</td></tr>
-        <tr><td>Certificate of Occupancy (Commercial)</td><td>$250.00</td></tr>
-        <tr><td>Temporary Certificate of Occupancy</td><td>$550.00 per unit</td></tr>
-        <tr><td>Partial Certificate of Occupancy</td><td>$550.00 per unit</td></tr>
-        <tr><td>Renewal/Extension (Temporary/Partial CO)</td><td>$550.00</td></tr>
-        <tr><td>Certificate of Completion</td><td>$5.00</td></tr>
-    </table>
-</div>
+        <div class="tab-content" id="building-content">
 
-<div class="section">
-    <h2>Scanning Fees</h2>
-    <ul>
-        <li>Up to 11"x17": $0.15 per sheet side</li>
-        <li>Larger than 11"x17": $4.00 per sheet side</li>
-    </ul>
-</div>
+    <section id="building-department" class="main-section section">
+        <h2>Building Department</h2>
 
-<div class="section">
-    <h2>Printing Fees</h2>
-    <ul>
-        <li>Up to legal size: $0.15 + $0.05 double-sided</li>
-        <li>Up to 11"x17": $0.30 + $0.10 double-sided</li>
-        <li>Larger than 11"x17": $6.00 per sheet</li>
-    </ul>
-</div>
+        <div class="section">
+            <h3>Application Fees</h3>
+            <ul>
+                <li>Submittal Fee Deposit: 50% of building permit fee upfront</li>
+                <li>Dry Run Fee Deposit: 25% of building permit fee upfront</li>
+            </ul>
 
-<div class="section">
-    <h2>Plans Examination Fees</h2>
-    <ul>
-        <li>Re-review of plans: $100/hour per reviewer</li>
-        <li>Post-permit extensive review: $100/hour</li>
-        <li>Expedited overtime (extended shift): $100/hour per reviewer</li>
-        <li>Expedited overtime (weekends/holidays): $420 first 3 hours + $140/hour after</li>
-    </ul>
-</div>
+            <h4>Certificates</h4>
+            <table>
+                <tr><th>Type</th><th>Fee</th></tr>
+                <tr><td>Certificate of Occupancy (Residential)</td><td>$150.00</td></tr>
+                <tr><td>Certificate of Occupancy (Commercial)</td><td>$250.00</td></tr>
+                <tr><td>Temporary Certificate of Occupancy</td><td>$550.00 per unit</td></tr>
+                <tr><td>Partial Certificate of Occupancy</td><td>$550.00 per unit</td></tr>
+                <tr><td>Renewal/Extension (Temporary/Partial CO)</td><td>$550.00</td></tr>
+                <tr><td>Certificate of Completion</td><td>$5.00</td></tr>
+            </table>
+        </div>
 
-<div class="section">
-    <h2>Other Fees</h2>
-    <ul>
-        <li>Records Requests / Reproduction: Cost + staff hourly rate</li>
-        <li>USB Flash Drive: $20.00 each</li>
-        <li>Sheets up to 8½" x 14": $0.15 + $0.05 double-sided</li>
-        <li>Sheets up to 11" x 17": $0.30 + $0.10 double-sided</li>
-        <li>Sheets over 11" x 17": $6.00 each</li>
-        <li>Maintenance presale & specialty inspections: $80 first hour + $60/hour additional</li>
-        <li>Enforcement fees: $20 per quarter hour</li>
-    </ul>
-</div>
+        <div class="section">
+            <h3>Permit Fees</h3>
 
-<div class="section">
-    <h2>Building Safety Inspection Program</h2>
-    <ul>
-        <li>Recertification Report Submittal: $350 per building</li>
-    </ul>
-</div>
+            <h4>Scanning Fees</h4>
+            <ul>
+                <li>Up to 11"x17": $0.15 per sheet side</li>
+                <li>Larger than 11"x17": $4.00 per sheet side</li>
+            </ul>
 
-<div class="section">
-    <h2>General Permit Fees</h2>
-    <ul>
-        <li>Minimum Permit Fee: $65.00 (All Permits)</li>
-        <li>Roofing Minimum: $75.00</li>
-    </ul>
-</div>
+            <h4>Printing Fees</h4>
+            <ul>
+                <li>Up to legal size: $0.15 + $0.05 double-sided</li>
+                <li>Up to 11"x17": $0.30 + $0.10 double-sided</li>
+                <li>Larger than 11"x17": $6.00 per sheet</li>
+            </ul>
 
-<div class="section">
-    <h2>Building Permit Fees</h2>
+            <h4>Plans Examination Fees</h4>
+            <ul>
+                <li>Re-review of plans: $100/hour per reviewer</li>
+                <li>Post-permit extensive review: $100/hour</li>
+                <li>Expedited overtime (extended shift): $100/hour per reviewer</li>
+                <li>Expedited overtime (weekends/holidays): $420 first 3 hours + $140/hour after</li>
+            </ul>
 
-    <h3>Without Zoning Review</h3>
-    <table>
-        <tr><th>Project Value</th><th>Fee</th></tr>
-        <tr><td>Up to $250,000</td><td>2.75%</td></tr>
-        <tr><td>$250,001 – $500,000</td><td>$6,875 + 2.65% over $250k</td></tr>
-        <tr><td>$500,001 – $1,000,000</td><td>$13,500 + 2.55% over $500k</td></tr>
-        <tr><td>$1M – $5M</td><td>$26,250 + 2.45% over $1M</td></tr>
-        <tr><td>$5M – $10M</td><td>$124,250 + 2.35% over $5M</td></tr>
-        <tr><td>Over $10M</td><td>$241,750 + 2.25% over $10M</td></tr>
-    </table>
+            <h4>Other Fees</h4>
+            <ul>
+                <li>Records Requests / Reproduction: Cost + staff hourly rate</li>
+                <li>USB Flash Drive: $20.00 each</li>
+                <li>Sheets up to 8½" x 14": $0.15 + $0.05 double-sided</li>
+                <li>Sheets up to 11" x 17": $0.30 + $0.10 double-sided</li>
+                <li>Sheets over 11" x 17": $6.00 each</li>
+                <li>Maintenance presale & specialty inspections: $80 first hour + $60/hour additional</li>
+                <li>Enforcement fees: $20 per quarter hour</li>
+            </ul>
 
-    <h3>With Zoning Review</h3>
-    <table>
-        <tr><th>Project Value</th><th>Fee</th></tr>
-        <tr><td>Up to $250,000</td><td>1.65%</td></tr>
-        <tr><td>$250,001 – $500,000</td><td>$4,125 + 1.55% over $250k</td></tr>
-        <tr><td>$500,001 – $1,000,000</td><td>$8,000 + 1.45% over $500k</td></tr>
-        <tr><td>$1M – $5M</td><td>$15,250 + 1.35% over $1M</td></tr>
-        <tr><td>$5M – $10M</td><td>$69,250 + 1.25% over $5M</td></tr>
-        <tr><td>Over $10M</td><td>$131,750 + 1.15% over $10M</td></tr>
-    </table>
-</div>
+            <h4>Building Safety Inspection Program</h4>
+            <ul>
+                <li>Recertification Report Submittal: $350 per building</li>
+            </ul>
 
-<div class="section">
-    <h2>Trade & Specialty Permits</h2>
-    <ul>
-        <li>Electrical Turn-On: $65.00</li>
-        <li>Temporary Electrical: $65.00</li>
-        <li>Residential A/C Change-Out: $65 up to 4 tons + $20 per additional ton</li>
-        <li>A/C & Furnace Change-Out: $70 up to 4 tons + $20 per additional ton</li>
-        <li>Smoke Evacuation Test: $400.00</li>
-    </ul>
-</div>
+            <h4>General Permit Fees</h4>
+            <ul>
+                <li>Minimum Permit Fee: $65.00 (All Permits)</li>
+                <li>Roofing Minimum: $75.00</li>
+            </ul>
 
-<div class="section">
-    <h2>Photovoltaic Systems</h2>
-    <ul>
-        <li>Up to 10 kW: $260 per trade</li>
-        <li>Over 10 kW: $260 + $10 per kW over 10 kW</li>
-    </ul>
-</div>
+            <h4>Building Permit Fees</h4>
+            <h5>Without Zoning Review</h5>
+            <table>
+                <tr><th>Project Value</th><th>Fee</th></tr>
+                <tr><td>Up to $250,000</td><td>2.75%</td></tr>
+                <tr><td>$250,001 – $500,000</td><td>$6,875 + 2.65% over $250k</td></tr>
+                <tr><td>$500,001 – $1,000,000</td><td>$13,500 + 2.55% over $500k</td></tr>
+                <tr><td>$1M – $5M</td><td>$26,250 + 2.45% over $1M</td></tr>
+                <tr><td>$5M – $10M</td><td>$124,250 + 2.35% over $5M</td></tr>
+                <tr><td>Over $10M</td><td>$241,750 + 2.25% over $10M</td></tr>
+            </table>
 
-<div class="section">
-    <h2>Temporary Tents / Canopies</h2>
-    <ul>
-        <li>Up to 120 sq ft: No permit required</li>
-        <li>120–500 sq ft: $150 first tent + $20 each additional</li>
-        <li>Over 500 sq ft: $250 first tent + $20 each additional</li>
-    </ul>
-</div>
+            <h5>With Zoning Review</h5>
+            <table>
+                <tr><th>Project Value</th><th>Fee</th></tr>
+                <tr><td>Up to $250,000</td><td>1.65%</td></tr>
+                <tr><td>$250,001 – $500,000</td><td>$4,125 + 1.55% over $250k</td></tr>
+                <tr><td>$500,001 – $1,000,000</td><td>$8,000 + 1.45% over $500k</td></tr>
+                <tr><td>$1M – $5M</td><td>$15,250 + 1.35% over $1M</td></tr>
+                <tr><td>$5M – $10M</td><td>$69,250 + 1.25% over $5M</td></tr>
+                <tr><td>Over $10M</td><td>$131,750 + 1.15% over $10M</td></tr>
+            </table>
 
-<div class="section">
-    <h2>Additional Permit Fees</h2>
-    <ul>
-        <li>Foundation Only: $1.00 per sq ft</li>
-        <li>Work Without Permit Penalty: Up to double permit fee</li>
-        <li>Permit Extension: $125 or base permit fee (whichever less)</li>
-        <li>Change of Contractor: $100 per discipline</li>
-        <li>Permit Card Replacement: $25</li>
-    </ul>
-</div>
+            <h4>Trade & Specialty Permits</h4>
+            <ul>
+                <li>Electrical Turn-On: $65.00</li>
+                <li>Temporary Electrical: $65.00</li>
+                <li>Residential A/C Change-Out: $65 up to 4 tons + $20 per additional ton</li>
+                <li>A/C & Furnace Change-Out: $70 up to 4 tons + $20 per additional ton</li>
+                <li>Smoke Evacuation Test: $400.00</li>
+            </ul>
 
-<div class="section">
-    <h2>Inspection Fees</h2>
-    <ul>
-        <li>First Inspection: Included</li>
-        <li>Reinspection (First): $60.00</li>
-        <li>Reinspection (Additional): $250.00</li>
-        <li>Overtime Inspections: $225 first 3 hours + $75/hour</li>
-        <li>Holiday/Sunday Inspections: $270 first 3 hours + $90/hour</li>
-    </ul>
-</div>
+            <h4>Photovoltaic Systems</h4>
+            <ul>
+                <li>Up to 10 kW: $260 per trade</li>
+                <li>Over 10 kW: $260 + $10 per kW over 10 kW</li>
+            </ul>
 
-<div class="section">
-    <h2>Private Provider Permit Fees</h2>
+            <h4>Temporary Tents / Canopies</h4>
+            <ul>
+                <li>Up to 120 sq ft: No permit required</li>
+                <li>120–500 sq ft: $150 first tent + $20 each additional</li>
+                <li>Over 500 sq ft: $250 first tent + $20 each additional</li>
+            </ul>
 
-    <h3>One Function (Inspections Only) – Building Only</h3>
-    <table>
-        <tr><th>Project Value</th><th>Fee</th></tr>
-        <tr><td>Up to $250,000</td><td>2.425% of value</td></tr>
-        <tr><td>$250,001 – $500,000</td><td>$6,062.50 + 2.328% over $250k</td></tr>
-        <tr><td>$500,001 – $1,000,000</td><td>$11,882.50 + 2.231% over $500k</td></tr>
-        <tr><td>$1M – $5M</td><td>$23,037.50 + 2.134% over $1M</td></tr>
-        <tr><td>$5M – $10M</td><td>$108,397.50 + 2.037% over $5M</td></tr>
-        <tr><td>Over $10M</td><td>$210,247.50 + 1.940% over $10M</td></tr>
-    </table>
+            <h4>Additional Permit Fees</h4>
+            <ul>
+                <li>Foundation Only: $1.00 per sq ft</li>
+                <li>Work Without Permit Penalty: Up to double permit fee</li>
+                <li>Permit Extension: $125 or base permit fee (whichever less)</li>
+                <li>Change of Contractor: $100 per discipline</li>
+                <li>Permit Card Replacement: $25</li>
+            </ul>
 
-    <h3>Two Functions (Plan Review & Inspections) – Building Only</h3>
-    <table>
-        <tr><th>Project Value</th><th>Fee</th></tr>
-        <tr><td>Up to $250,000</td><td>2.35% of value</td></tr>
-        <tr><td>$250,001 – $500,000</td><td>$5,875 + 2.256% over $250k</td></tr>
-        <tr><td>$500,001 – $1,000,000</td><td>$11,515 + 2.162% over $500k</td></tr>
-        <tr><td>$1M – $5M</td><td>$22,325 + 2.068% over $1M</td></tr>
-        <tr><td>$5M – $10M</td><td>$105,045 + 1.974% over $5M</td></tr>
-        <tr><td>Over $10M</td><td>$203,745 + 1.880% over $10M</td></tr>
-    </table>
+            <h4>Inspection Fees</h4>
+            <ul>
+                <li>First Inspection: Included</li>
+                <li>Reinspection (First): $60.00</li>
+                <li>Reinspection (Additional): $250.00</li>
+                <li>Overtime Inspections: $225 first 3 hours + $75/hour</li>
+                <li>Holiday/Sunday Inspections: $270 first 3 hours + $90/hour</li>
+            </ul>
+        </div>
 
-    <h3>One Function (Inspections Only) – Building & Zoning</h3>
-    <table>
-        <tr><th>Project Value</th><th>Fee</th></tr>
-        <tr><td>Up to $250,000</td><td>1.358% of value</td></tr>
-        <tr><td>$250,001 – $500,000</td><td>$3,395 + 1.261% over $250k</td></tr>
-        <tr><td>$500,001 – $1,000,000</td><td>$6,548.50 + 1.164% over $500k</td></tr>
-        <tr><td>$1M – $5M</td><td>$12,368.50 + 1.067% over $1M</td></tr>
-        <tr><td>$5M – $10M</td><td>$55,048.50 + 0.970% over $5M</td></tr>
-        <tr><td>Over $10M</td><td>$103,548.50 + 0.873% over $10M</td></tr>
-    </table>
+        <div class="button-row">
+            <a href="#top" class="nav-button">Back to Top</a>
+        </div>
+    </section>
+    </div>
 
-    <h3>Two Functions (Plan Review & Inspections) – Building & Zoning</h3>
-    <table>
-        <tr><th>Project Value</th><th>Fee</th></tr>
-        <tr><td>Up to $250,000</td><td>1.316% of value</td></tr>
-        <tr><td>$250,001 – $500,000</td><td>$3,290 + 1.222% over $250k</td></tr>
-        <tr><td>$500,001 – $1,000,000</td><td>$6,345 + 1.128% over $500k</td></tr>
-        <tr><td>$1M – $5M</td><td>$11,985 + 1.034% over $1M</td></tr>
-        <tr><td>$5M – $10M</td><td>$53,345 + 0.940% over $5M</td></tr>
-        <tr><td>Over $10M</td><td>$100,345 + 0.846% over $10M</td></tr>
-    </table>
+    <div class="tab-content" id="fire-content">
+        <h2>Fire Prevention</h2>
 
-<div class="section">
-    <h2>Engineering Permit Fees</h2>
-
-    <h3>Engineering Fee</h3>
-    <p>4% of construction cost (minimum $100.00)</p>
-
-    <h3>Double Permit Fee</h3>
-    <p>Work started before permit issuance: additional 100% of application fee</p>
-
-    <h3>Plan Revisions / Change of Contractor</h3>
-    <ul>
-        <li>$100.00 per revision or contractor change</li>
-        <li>Additional work: 4% of added construction value</li>
-    </ul>
-
-    <h3>Re-inspection Fees</h3>
-    <ul>
-        <li>First reinspection: $30.00</li>
-        <li>Additional inspections: 4× first reinspection fee</li>
-    </ul>
-
-    <h3>Nonrefundable Fees</h3>
-    <p>All permit and reinspection fees are nonrefundable.</p>
-</div>
-
-<div class="section">
-    <h2>Fire Prevention Permit Fees</h2>
-
-    <h3>General Permits</h3>
-    <p>$10 per percent of capacity (Min: $75 | Max: $500)</p>
+            <h4>General Permits</h4>
+            <p>$10 per percent of capacity (Min: $75 | Max: $500)</p>
 
     <h3>New Construction & Alterations</h3>
     <p>Minimum $100.00 or 0.5% of construction value (whichever greater)</p>
@@ -372,11 +402,36 @@
 
     <h3>Overtime Services</h3>
     <p>1.5× hourly rate (minimum 3 hours)</p>
-</div>
+    </section>
+    </div>
 
-<div class="section">
-    <h2>Landscape / Urban Forestry Permit Fees</h2>
+    <div class="tab-content" id="engineering-content">
+        <h2>Engineering</h2>
+    <h3>Engineering Fee</h3>
+    <p>4% of construction cost (minimum $100.00)</p>
 
+    <h3>Double Permit Fee</h3>
+    <p>Work started before permit issuance: additional 100% of application fee</p>
+
+    <h3>Plan Revisions / Change of Contractor</h3>
+    <ul>
+        <li>$100.00 per revision or contractor change</li>
+        <li>Additional work: 4% of added construction value</li>
+    </ul>
+
+    <h3>Re-inspection Fees</h3>
+    <ul>
+        <li>First reinspection: $30.00</li>
+        <li>Additional inspections: 4× first reinspection fee</li>
+    </ul>
+
+    <h3>Nonrefundable Fees</h3>
+    <p>All permit and reinspection fees are nonrefundable.</p>
+    </section>
+    </div>
+
+    <div class="tab-content" id="landscape-content">
+        <h2>Landscape</h2>
     <h3>Tree Permit Fees</h3>
     <table>
         <tr><th>Category</th><th>Fee</th></tr>
@@ -394,10 +449,11 @@
         <tr><td>Second</td><td>$160.00</td></tr>
         <tr><td>Third</td><td>$313.00</td></tr>
     </table>
-</div>
+    </section>
+    </div>
 
-<div class="section">
-    <h2>Zoning Compliance Permit Fees</h2>
+    <div class="tab-content" id="zoning-content">
+        <h2>Zoning</h2>
     <table>
         <tr><th>Project Value</th><th>Fee</th></tr>
         <tr><td>Minimum</td><td>$65.00</td></tr>
@@ -408,10 +464,68 @@
         <tr><td>$5M – $10M</td><td>$41,750 + 0.70% over $5M</td></tr>
         <tr><td>Over $10M</td><td>$76,750 + 0.60% over $10M</td></tr>
     </table>
-</div>
-</div>
+        <div class="button-row">
+            <a href="#building-department" class="nav-button">Back to Building Department</a>
+            <a href="#top" class="nav-button">Back to Top</a>
+        </div>
+    </section>
+    </div>
 
-</div>
+    <div class="tab-content" id="private-content">
+        <section id="private-provider" class="main-section section">
+            <h2>Private Provider</h2>
+
+<div class="section">
+    <h3>Private Provider Permit Fees</h3>
+
+    <h4>One Function (Inspections Only) – Building Only</h4>
+    <table>
+        <tr><th>Project Value</th><th>Fee</th></tr>
+        <tr><td>Up to $250,000</td><td>2.425% of value</td></tr>
+        <tr><td>$250,001 – $500,000</td><td>$6,062.50 + 2.328% over $250k</td></tr>
+        <tr><td>$500,001 – $1,000,000</td><td>$11,882.50 + 2.231% over $500k</td></tr>
+        <tr><td>$1M – $5M</td><td>$23,037.50 + 2.134% over $1M</td></tr>
+        <tr><td>$5M – $10M</td><td>$108,397.50 + 2.037% over $5M</td></tr>
+        <tr><td>Over $10M</td><td>$210,247.50 + 1.940% over $10M</td></tr>
+    </table>
+
+    <h4>Two Functions (Plan Review & Inspections) – Building Only</h4>
+    <table>
+        <tr><th>Project Value</th><th>Fee</th></tr>
+        <tr><td>Up to $250,000</td><td>2.35% of value</td></tr>
+        <tr><td>$250,001 – $500,000</td><td>$5,875 + 2.256% over $250k</td></tr>
+        <tr><td>$500,001 – $1,000,000</td><td>$11,515 + 2.162% over $500k</td></tr>
+        <tr><td>$1M – $5M</td><td>$22,325 + 2.068% over $1M</td></tr>
+        <tr><td>$5M – $10M</td><td>$105,045 + 1.974% over $5M</td></tr>
+        <tr><td>Over $10M</td><td>$203,745 + 1.880% over $10M</td></tr>
+    </table>
+
+    <h4>One Function (Inspections Only) – Building & Zoning</h4>
+    <table>
+        <tr><th>Project Value</th><th>Fee</th></tr>
+        <tr><td>Up to $250,000</td><td>1.358% of value</td></tr>
+        <tr><td>$250,001 – $500,000</td><td>$3,395 + 1.261% over $250k</td></tr>
+        <tr><td>$500,001 – $1,000,000</td><td>$6,548.50 + 1.164% over $500k</td></tr>
+        <tr><td>$1M – $5M</td><td>$12,368.50 + 1.067% over $1M</td></tr>
+        <tr><td>$5M – $10M</td><td>$55,048.50 + 0.970% over $5M</td></tr>
+        <tr><td>Over $10M</td><td>$103,548.50 + 0.873% over $10M</td></tr>
+    </table>
+
+    <h4>Two Functions (Plan Review & Inspections) – Building & Zoning</h4>
+    <table>
+        <tr><th>Project Value</th><th>Fee</th></tr>
+        <tr><td>Up to $250,000</td><td>1.316% of value</td></tr>
+        <tr><td>$250,001 – $500,000</td><td>$3,290 + 1.222% over $250k</td></tr>
+        <tr><td>$500,001 – $1,000,000</td><td>$6,345 + 1.128% over $500k</td></tr>
+        <tr><td>$1M – $5M</td><td>$11,985 + 1.034% over $1M</td></tr>
+        <tr><td>$5M – $10M</td><td>$53,345 + 0.940% over $5M</td></tr>
+        <tr><td>Over $10M</td><td>$100,345 + 0.846% over $10M</td></tr>
+    </table>
+    </div>
+        </section>
+    </div>
+
+    </div>
 
 <footer>
     <p>&copy; 2026 City of Pompano Beach. Building Department. All rights reserved.</p>

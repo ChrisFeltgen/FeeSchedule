@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pompano Beach Fee Schedule</title>
+    <title>Pompano Beach Building Department Fee Schedule</title>
     <style>
         * {
             margin: 0;
@@ -104,7 +104,15 @@
         }
 
         .page-header {
-            padding: 2rem 0 1rem;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1.5rem 0 0.1rem;
+        }
+
+        .page-header__content {
+            flex: 1;
             text-align: center;
         }
 
@@ -113,10 +121,28 @@
             color: #555;
         }
 
-        .page-actions {
-            display: flex;
+        .header-print-button {
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-            margin: 0 0 1rem;
+            width: 2.75rem;
+            height: 2.75rem;
+            flex: 0 0 auto;
+            border: none;
+            border-radius: 999px;
+            background: #1B9BA8;
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .header-print-button:hover {
+            background: #157a8a;
+        }
+
+        .header-print-button svg {
+            width: 1.2rem;
+            height: 1.2rem;
         }
 
         .nav-buttons,
@@ -210,9 +236,17 @@
             color: #999;
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 650px) {
             body {
                 font-size: 0.95rem;
+            }
+
+            .page-header {
+                align-items: center;
+            }
+
+            .page-header__content {
+                text-align: left;
             }
             
             h2 {
@@ -227,20 +261,46 @@
                 padding: 0.5rem 0.6rem;
             }
 
-            .tab-nav label {
-                padding: 0.6rem 0.45rem;
-                font-size: 0.8rem;
+            .tabs .tab-nav {
+                display: none;
+            }
+
+            .tabs .tab-select-wrap {
+                display: block;
+                margin-bottom: 1rem;
+            }
+
+            .tab-select-label {
+                display: block;
+                margin-bottom: 0.4rem;
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: #555;
+            }
+
+            .tab-select {
+                width: 100%;
+                padding: 0.75rem 0.9rem;
+                border: 1px solid #ccc;
+                border-radius: 0.75rem;
+                background: white;
+                color: #333;
+                font-size: 1rem;
             }
         }
 
         /* Tab styles */
         .tabs {
-            margin: 2rem 0;
+            margin: 0.2rem 0 2rem;
         }
 
         .tab-nav {
             display: flex;
             flex-wrap: nowrap;
+        }
+
+        .tab-select-wrap {
+            display: none;
         }
 
         .tabs input[type="radio"] {
@@ -335,7 +395,7 @@
             }
 
             .page-header,
-            .page-actions,
+            .tab-select-wrap,
             .tab-nav,
             .button-row,
             footer {
@@ -398,12 +458,25 @@
 </head>
 <body>
 
-<div class="container">
-    <div id="top"></div>
-    <header class="page-header">
-        <h1>Pompano Beach Fee Schedule</h1>
-        <p>Organized by department for faster lookup.</p>
-    </header>
+    <div class="container">
+        <div id="top"></div>
+        <header class="page-header">
+            <div class="page-header__content">
+                <h1>Building Department Fee Schedule</h1>
+                <p>Including permit fee schedules for outside agencies.</p>
+            </div>
+            <button
+                type="button"
+                class="header-print-button no-print"
+                onclick="window.print()"
+                aria-label="Print fee schedule"
+                title="Print fee schedule"
+            >
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path fill="currentColor" d="M7 3h10v4H7V3zm10 8h1.5a1.5 1.5 0 0 1 1.5 1.5V17h-3v4H7v-4H4v-4.5A1.5 1.5 0 0 1 5.5 11H7V8h10v3zm-2 8v-5H9v5h6zm1-6V10H8v3h8z"/>
+                </svg>
+            </button>
+        </header>
 
     <div class="print-header">
         <div class="print-header__row">
@@ -425,11 +498,7 @@
                 <div>954.786.4669</div>
             </div>
         </div>
-        <div class="print-header__title">Pompano Beach Fee Schedule</div>
-    </div>
-
-    <div class="page-actions no-print">
-        <button type="button" class="nav-button" onclick="window.print()">Print Fee Schedule</button>
+        <div class="print-header__title">Building Department Fee Schedule</div>
     </div>
 
     <div class="tabs">
@@ -439,6 +508,18 @@
         <input type="radio" id="landscape-tab" name="tabs">
         <input type="radio" id="zoning-tab" name="tabs">
         <input type="radio" id="private-tab" name="tabs">
+
+        <div class="tab-select-wrap">
+            <label class="tab-select-label" for="tab-select">Department</label>
+            <select id="tab-select" class="tab-select" aria-label="Select department">
+                <option value="building-tab">Building Department</option>
+                <option value="fire-tab">Fire Prevention</option>
+                <option value="engineering-tab">Engineering</option>
+                <option value="landscape-tab">Landscape</option>
+                <option value="zoning-tab">Zoning</option>
+                <option value="private-tab">Private Provider</option>
+            </select>
+        </div>
 
         <div class="tab-nav">
         <label for="building-tab">Building Department</label>
@@ -456,21 +537,16 @@
 
                 <div class="section">
                     <h3>Application Fees</h3>
+                    <h4>Submittal and Dry Run Fees</h4>
                     <ul>
                         <li>Submittal Fee Deposit: 50% of building permit fee upfront</li>
                         <li>Dry Run Fee Deposit (One Review w/ incomplete submittal): 25% of building permit fee upfront</li>
                     </ul>
 
-                    <h4>Certificates</h4>
-                    <table>
-                        <tr><th>Type</th><th>Fee</th></tr>
-                        <tr><td>Certificate of Occupancy (Residential)</td><td>$150.00</td></tr>
-                        <tr><td>Certificate of Occupancy (Commercial)</td><td>$250.00</td></tr>
-                        <tr><td>Temporary Certificate of Occupancy</td><td>$550.00 (for each Unit)</td></tr>
-                        <tr><td>Partial Certificate of Occupancy</td><td>$550.00 (for each Unit)</td></tr>
-                        <tr><td>Renewal or extension of a Temporary or Partial Certificate of Occupancy</td><td>$550.00</td></tr>
-                        <tr><td>Certificate of Completion</td><td>$5.00</td></tr>
-                    </table>
+                    <h4>Application Changes</h4>
+                    <ul>
+                        <li>Change of Contractor: $100.00 per discipline</li>
+                    </ul>
 
                     <h4>Scanning Fees</h4>
                     <ul>
@@ -493,28 +569,23 @@
                         <li>Expedited Overtime Plan Review (Weekends / Holidays): $420 for the first three hours plus $140 per additional hour per reviewer</li>
                     </ul>
 
-                    <h4>Other Fees</h4>
-                    <h5>Records Requests; Document Reproduction Fees</h5>
+                    <h4>Certificates</h4>
                     <table>
-                        <tr><th>Item</th><th>Fee</th></tr>
-                        <tr><td>Records Requests</td><td>Cost plus Staff Hourly Rate</td></tr>
-                        <tr><td>Reproduction of Documents</td><td>Cost plus Staff Hourly Rate</td></tr>
-                        <tr><td>USB Flash Drive</td><td>$20 each</td></tr>
-                        <tr><td>Sheets up to 8&frac12;&quot; x 14&quot;</td><td>$0.15 per sheet plus $0.05 double sided</td></tr>
-                        <tr><td>Sheets over 8&frac12;&quot; x 14&quot; and up to and including 11&quot; x 17&quot;</td><td>$0.30 per sheet plus $0.10 double sided</td></tr>
-                        <tr><td>Sheets over 11&quot; x 17&quot;</td><td>$6 per sheet</td></tr>
-                        <tr><td>Maintenance presale and Specialty Inspections</td><td>$80.00 for the first hour plus $60.00 per each additional hour</td></tr>
-                        <tr><td>Enforcement fees (Unsafe / Board Ups)</td><td>$20.00 per quarter hour</td></tr>
+                        <tr><th>Type</th><th>Fee</th></tr>
+                        <tr><td>Certificate of Occupancy (Residential)</td><td>$150.00</td></tr>
+                        <tr><td>Certificate of Occupancy (Commercial)</td><td>$250.00</td></tr>
+                        <tr><td>Temporary Certificate of Occupancy</td><td>$550.00 (for each Unit)</td></tr>
+                        <tr><td>Partial Certificate of Occupancy</td><td>$550.00 (for each Unit)</td></tr>
+                        <tr><td>Renewal or extension of a Temporary or Partial Certificate of Occupancy</td><td>$550.00</td></tr>
+                        <tr><td>Certificate of Completion</td><td>$5.00</td></tr>
                     </table>
 
-                    <h4>Building Safety Inspection Program</h4>
-                    <p>Building Safety Report Submittal for Recertification: $350 per building or structure</p>
                 </div>
 
                 <div class="section">
                     <h3>Permit Fees</h3>
 
-                    <h4>General Permit Fees</h4>
+                    <h4>Minimum Permit Fees</h4>
                     <ul>
                         <li>Minimum Permit Fee: $65.00 (All Permits)</li>
                         <li>Roofing Minimum: $75.00 (Roofing Permits)</li>
@@ -580,16 +651,35 @@
                 </div>
 
                 <div class="section">
-                    <h3>Change and Inspection Fees</h3>
-                    <ul>
-                        <li>Change of Contractor: $100.00 per discipline</li>
-                        <li>Permit Card Replacement: $25.00</li>
-                        <li>First Inspection: Included in permit fees</li>
-                        <li>Reinspection (First Disapproval with Penalty): $60.00</li>
-                        <li>Reinspection (Additional Disapprovals with Penalty): $250.00</li>
-                        <li>Overtime Inspections: $225 for the first three hours and $75 per additional hour per inspector</li>
-                        <li>Overtime Inspections (Holidays &amp; Sundays): $270 for the first three hours and $90 per additional hour per inspector</li>
-                    </ul>
+                    <h3>Inspection Fees</h3>
+                    <table>
+                        <tr><th>Fee</th><th>Amount</th></tr>
+                        <tr><td>First Inspection</td><td>Included in permit fees</td></tr>
+                        <tr><td>Reinspection (First Disapproval with Penalty)</td><td>$60.00</td></tr>
+                        <tr><td>Reinspection (Additional Disapprovals with Penalty)</td><td>$250.00</td></tr>
+                        <tr><td>Overtime Inspections</td><td>$225 for the first three hours and $75 per additional hour per inspector</td></tr>
+                        <tr><td>Overtime Inspections (Holidays &amp; Sundays)</td><td>$270 for the first three hours and $90 per additional hour per inspector</td></tr>
+                        <tr><td>Maintenance presale and Specialty Inspections</td><td>$80.00 for the first hour plus $60.00 per each additional hour</td></tr>
+                        <tr><td>Enforcement fees (Unsafe / Board Ups)</td><td>$20.00 per quarter hour</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3>Records Requests; Document Reproduction Fees</h3>
+                    <table>
+                        <tr><th>Item</th><th>Fee</th></tr>
+                        <tr><td>Records Requests</td><td>Cost plus Staff Hourly Rate</td></tr>
+                        <tr><td>Reproduction of Documents</td><td>Cost plus Staff Hourly Rate</td></tr>
+                        <tr><td>USB Flash Drive</td><td>$20 each</td></tr>
+                        <tr><td>Sheets up to 8&frac12;&quot; x 14&quot;</td><td>$0.15 per sheet plus $0.05 double sided</td></tr>
+                        <tr><td>Sheets over 8&frac12;&quot; x 14&quot; and up to and including 11&quot; x 17&quot;</td><td>$0.30 per sheet plus $0.10 double sided</td></tr>
+                        <tr><td>Sheets over 11&quot; x 17&quot;</td><td>$6 per sheet</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3>Building Safety Inspection Program</h3>
+                    <p>Building Safety Report Submittal for Recertification: $350 per building or structure</p>
                 </div>
 
                 <div class="button-row">
@@ -756,6 +846,39 @@
 <footer>
     <p>&copy; 2026 City of Pompano Beach. Building Department. All rights reserved.</p>
 </footer>
+
+<script>
+    (function () {
+        const tabSelect = document.getElementById('tab-select');
+        const tabInputs = Array.from(document.querySelectorAll('.tabs input[name="tabs"]'));
+
+        if (!tabSelect || tabInputs.length === 0) {
+            return;
+        }
+
+        const syncSelectToCheckedTab = () => {
+            const activeTab = tabInputs.find((input) => input.checked);
+
+            if (activeTab) {
+                tabSelect.value = activeTab.id;
+            }
+        };
+
+        tabSelect.addEventListener('change', () => {
+            const selectedTab = document.getElementById(tabSelect.value);
+
+            if (selectedTab) {
+                selectedTab.checked = true;
+            }
+        });
+
+        tabInputs.forEach((input) => {
+            input.addEventListener('change', syncSelectToCheckedTab);
+        });
+
+        syncSelectToCheckedTab();
+    }());
+</script>
 
 </body>
 </html>

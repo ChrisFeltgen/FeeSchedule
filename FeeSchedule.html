@@ -90,6 +90,15 @@
             padding: 0.6rem 0.8rem;
             border-bottom: 1px solid #ddd;
         }
+
+        .fee-detail {
+            display: block;
+            margin-top: 0.15rem;
+        }
+
+        .label-detail {
+            display: block;
+        }
         
         tr:nth-child(even) {
             background: #fafafa;
@@ -791,49 +800,48 @@
             <h2>Private Provider Permit Fees</h2>
 
             <div class="section">
-                <h4>For Private Providers Performing One Function (Inspections Only) (Building Only):</h4>
+                <p>Private Provider permit fees apply when a licensed Private Provider performs inspection services only, or both inspection services and plan review services, in accordance with the proposed memo 26-01 fee schedule.</p>
+
+                <h3>Building Permit Fees (Without Zoning Review)</h3>
                 <table>
-                    <tr><th>Project Value</th><th>Fee</th></tr>
-                    <tr><td>Up to $250,000</td><td>2.425% of value</td></tr>
-                    <tr><td>From $250,001 to $500,000</td><td>$6,062.50 plus 2.328% over $250,000 of value</td></tr>
-                    <tr><td>From $500,001 to $1,000,000</td><td>$11,882.50 plus 2.231% over $500,000 of value</td></tr>
-                    <tr><td>From $1,000,000 to $5,000,000</td><td>$23,037.50 plus 2.134% over $1,000,000 of value</td></tr>
-                    <tr><td>From $5,000,000 to $10,000,000</td><td>$108,397.50 plus 2.037% over $5,000,000 of value</td></tr>
-                    <tr><td>Over $10,000,000</td><td>$210,247.50 plus 1.940% over $10,000,000 of value</td></tr>
+                    <tr><th>Project Value</th><th>Inspections Only</th><th>Plan Review + Inspections</th></tr>
+                    <tr><td>Up to $250,000</td><td>2.0625% of value</td><td>1.375% of value</td></tr>
+                    <tr><td>From $250,001 to $500,000</td><td>$5,156.25 +<span class="fee-detail">1.9875% of value over $250,000</span></td><td>$3,437.50 +<span class="fee-detail">1.325% of value over $250,000</span></td></tr>
+                    <tr><td>From $500,001 to $1,000,000</td><td>$10,125 +<span class="fee-detail">1.9125% of value over $500,000</span></td><td>$6,750 +<span class="fee-detail">1.275% of value over $500,000</span></td></tr>
+                    <tr><td>From $1,000,001 to $5,000,000</td><td>$19,687.50 +<span class="fee-detail">1.8375% of value over $1,000,000</span></td><td>$13,125 +<span class="fee-detail">1.225% of value over $1,000,000</span></td></tr>
+                    <tr><td>From $5,000,001 to $10,000,000</td><td>$93,187.50 +<span class="fee-detail">1.7625% of value over $5,000,000</span></td><td>$62,125 +<span class="fee-detail">1.175% of value over $5,000,000</span></td></tr>
+                    <tr><td>Over $10,000,000</td><td>$181,312.50 +<span class="fee-detail">1.6875% of value over $10,000,000</span></td><td>$120,875 +<span class="fee-detail">1.125% of value over $10,000,000</span></td></tr>
                 </table>
 
-                <h4>For Private Providers Performing Two Functions (Plan Review and Inspections) (Building Only):</h4>
+                <h3>Permit Fees (With Zoning Review)</h3>
                 <table>
-                    <tr><th>Project Value</th><th>Fee</th></tr>
-                    <tr><td>Up to $250,000</td><td>2.35% of value</td></tr>
-                    <tr><td>From $250,001 to $500,000</td><td>$5,875 plus 2.256% over $250,000 of value</td></tr>
-                    <tr><td>From $500,001 to $1,000,000</td><td>$11,515 plus 2.162% over $500,000 of value</td></tr>
-                    <tr><td>From $1,000,000 to $5,000,000</td><td>$22,325 plus 2.068% over $1,000,000 of value</td></tr>
-                    <tr><td>From $5,000,000 to $10,000,000</td><td>$105,045 plus 1.974% over $5,000,000 of value</td></tr>
-                    <tr><td>Over $10,000,000</td><td>$203,745 plus 1.880% over $10,000,000 of value</td></tr>
+                    <tr><th>Project Value</th><th>Inspections Only</th><th>Plan Review + Inspections</th></tr>
+                    <tr><td>Up to $250,000</td><td>1.2375% of value</td><td>0.825% of value</td></tr>
+                    <tr><td>From $250,001 to $500,000</td><td>$3,093.75 +<span class="fee-detail">1.1625% of value over $250,000</span></td><td>$2,062.50 +<span class="fee-detail">0.775% of value over $250,000</span></td></tr>
+                    <tr><td>From $500,001 to $1,000,000</td><td>$6,000 +<span class="fee-detail">1.0875% of value over $500,000</span></td><td>$4,000 +<span class="fee-detail">0.725% of value over $500,000</span></td></tr>
+                    <tr><td>From $1,000,001 to $5,000,000</td><td>$11,437.50 +<span class="fee-detail">1.0125% of value over $1,000,000</span></td><td>$7,625 +<span class="fee-detail">0.675% of value over $1,000,000</span></td></tr>
+                    <tr><td>From $5,000,001 to $10,000,000</td><td>$51,937.50 +<span class="fee-detail">0.9375% of value over $5,000,000</span></td><td>$34,625 +<span class="fee-detail">0.625% of value over $5,000,000</span></td></tr>
+                    <tr><td>Over $10,000,000</td><td>$98,812.50 +<span class="fee-detail">0.8625% of value over $10,000,000</span></td><td>$65,875 +<span class="fee-detail">0.575% of value over $10,000,000</span></td></tr>
+                </table>
+                <p><em>*See Zoning Permit Fee Schedule for Zoning Compliance Permit Fees</em></p>
+
+                <h3>Miscellaneous Permit Fees</h3>
+                <table>
+                    <tr><th>Permit Type</th><th>Inspections Only</th><th>Plan Review + Inspections</th></tr>
+                    <tr><td>Minimum Permit Fee<span class="label-detail">(All Permits)</span></td><td>$48.75</td><td>$32.50</td></tr>
+                    <tr><td>Roofing Minimum Permit Fee</td><td>$56.25</td><td>$37.50</td></tr>
+                    <tr><td>Residential A/C<span class="label-detail">Change Out</span></td><td>$48.75 up to 4-ton system<span class="fee-detail">+ $15 each additional ton</span></td><td>$32.50 up to 4-ton system<span class="fee-detail">+ $10 each additional ton</span></td></tr>
+                    <tr><td>A/C and Furnace<span class="label-detail">Change Out</span></td><td>$52.50 up to 4-ton system<span class="fee-detail">+ $15 each additional ton</span></td><td>$35.00 up to 4-ton system<span class="fee-detail">+ $10 each additional ton</span></td></tr>
+                    <tr><td>Photovoltaic Systems<span class="label-detail">Up to 10 kW</span></td><td>$195 per trade</td><td>$130 per trade</td></tr>
+                    <tr><td>Photovoltaic Systems<span class="label-detail">Over 10 kW</span></td><td>$195 +<span class="fee-detail">$7.50 per kW over 10 kW</span></td><td>$130 +<span class="fee-detail">$5 per kW over 10 kW</span></td></tr>
+                    <tr><td>Temporary Tent/Canopy<span class="label-detail">(120-500 sq. ft.)</span></td><td>$112.50 first tent;<span class="fee-detail">$15 each additional</span></td><td>$75 first tent;<span class="fee-detail">$10 each additional</span></td></tr>
+                    <tr><td>Temporary Tent/Canopy<span class="label-detail">(500+ sq. ft.)</span></td><td>$187.50 first tent;<span class="fee-detail">$15 each additional</span></td><td>$125 first tent;<span class="fee-detail">$10 each additional</span></td></tr>
+                    <tr><td>Foundation Only Permit</td><td>$0.75 per sq. ft.</td><td>$0.50 per sq. ft.</td></tr>
                 </table>
 
-                <h4>For Private Providers Performing One Function (Inspections Only) (Building &amp; Zoning):</h4>
-                <table>
-                    <tr><th>Project Value</th><th>Fee</th></tr>
-                    <tr><td>Up to $250,000</td><td>1.358% of value</td></tr>
-                    <tr><td>From $250,001 to $500,000</td><td>$3,395 plus 1.261% over $250,000 of value</td></tr>
-                    <tr><td>From $500,001 to $1,000,000</td><td>$6,548.50 plus 1.164% over $500,000 of value</td></tr>
-                    <tr><td>From $1,000,000 to $5,000,000</td><td>$12,368.50 plus 1.067% over $1,000,000 of value</td></tr>
-                    <tr><td>From $5,000,000 to $10,000,000</td><td>$55,048.50 plus 0.970% over $5,000,000 of value</td></tr>
-                    <tr><td>Over $10,000,000</td><td>$103,548.50 plus 0.873% over $10,000,000 of value</td></tr>
-                </table>
-
-                <h4>For Private Providers Performing Two Functions (Plan Review and Inspections) (Building &amp; Zoning):</h4>
-                <table>
-                    <tr><th>Project Value</th><th>Fee</th></tr>
-                    <tr><td>Up to $250,000</td><td>1.316% of value</td></tr>
-                    <tr><td>From $250,001 to $500,000</td><td>$3,290 plus 1.222% over $250,000 of value</td></tr>
-                    <tr><td>From $500,001 to $1,000,000</td><td>$6,345 plus 1.128% over $500,000 of value</td></tr>
-                    <tr><td>From $1,000,000 to $5,000,000</td><td>$11,985 plus 1.034% over $1,000,000 of value</td></tr>
-                    <tr><td>From $5,000,000 to $10,000,000</td><td>$53,345 plus 0.940% over $5,000,000 of value</td></tr>
-                    <tr><td>Over $10,000,000</td><td>$100,345 plus 0.846% over $10,000,000 of value</td></tr>
-                </table>
+                <div class="button-row">
+                    <a href="#top" class="nav-button">Back to Top</a>
+                </div>
             </div>
         </div>
     </div>
